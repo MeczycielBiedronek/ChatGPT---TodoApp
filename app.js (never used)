@@ -1,0 +1,38 @@
+// Create an array to store todos
+let todos = [];
+
+// Create a function to add todos
+function addTodo(todoText) {
+    todos.push({
+        todoText: todoText,
+        completed: false
+    });
+}
+
+// Create a function to display todos
+function displayTodos() {
+    console.log("My todos:")
+    for (let i = 0; i < todos.length; i++) {
+        console.log(todos[i].todoText);
+    }
+}
+
+// Create a function to change a todo
+function changeTodo(index, todoText) {
+    todos[index].todoText = todoText;
+}
+
+// Create a function to delete a todo
+function deleteTodo(index) {
+    todos.splice(index, 1);
+}
+
+// Create a function to toggle a todo
+function toggleTodo(index) {
+    let todo = todos[index];
+    todo.completed = !todo.completed;
+}
+
+// Render todos
+
+const 

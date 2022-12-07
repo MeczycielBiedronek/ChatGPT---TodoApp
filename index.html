@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<HTML>
+<head>
+  <title>To Do App</title>
+  <style>
+    .todo-list {
+      font-family: sans-serif;
+      font-size: 20px;
+      width: 300px;
+      padding: 20px;
+    }
+    .todo-item {
+      margin-bottom: 20px;
+    }
+    .todo-item label {
+      margin-right: 10px;
+    }
+    .todo-item input[type="checkbox"] {
+      margin-right: 10px;
+    }
+    .todo-item button {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="todo-list">
+    <h2>To Do List</h2>
+
+    <form>
+      <input type="text" placeholder="Add a new item..." />
+      <input type="submit" value="Add" />
+    </form>
+  </div>
+  <script>
+    // Your JavaScript code goes here
+    const form = document.querySelector('form');
+    const todos = document.querySelector('.todo-list');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const input = document.querySelector('input');
+      const newTodo = document.createElement('div');
+      newTodo.classList.add('todo-item');
+      newTodo.innerHTML = `
+      <input type="checkbox" id="item" />
+      <label for="item">${input.value}</label>
+      <button>Edit</button>
+      <button>Delete</button>
+      `;
+      todos.appendChild(newTodo);
+      input.value = '';
+    });
+
+    todos.addEventListener('click', (e) => {
+      if (e.target.matches('button')) {
+        const todo = e.target.parentElement;
+        todos.removeChild(todo);
+      }
+    })
+
+  </script>
+</body>
+</html>
